@@ -120,15 +120,15 @@ import { motion } from 'framer-motion'
 
 ### Vercel (Recommended) - Hướng dẫn chi tiết
 
-#### Bước 1: Tạo GitHub Repository
-1. Tạo repository mới trên [GitHub](https://github.com/new)
-2. Clone hoặc push code lên GitHub:
+#### Bước 1: Tạo GitHub Repository ✅
+1. ✅ Repository đã tạo: `CVprofile`
+2. Push code lên GitHub:
 ```bash
 git init
 git add .
 git commit -m "Initial commit: CV Portfolio"
 git branch -M main
-git remote add origin https://github.com/yourusername/cv-portfolio.git
+git remote add origin https://github.com/peaceful-fptu-k16/CVprofile.git
 git push -u origin main
 ```
 
@@ -150,6 +150,21 @@ git push -u origin main
 - Mỗi khi push code mới lên GitHub, Vercel sẽ tự động deploy
 - Preview deployments cho pull requests
 - Production deployments cho branch `main`
+
+#### Bước 4: Cấu hình Domain tùy chỉnh (io.me)
+1. **Sau khi deploy thành công**, vào **Vercel Dashboard**
+2. **Chọn project CVprofile** 
+3. **Vào tab "Settings"** > **"Domains"**
+4. **Add Domain**: Nhập `yourusername.io.me` (thay `yourusername` bằng tên bạn muốn)
+5. **Configure DNS Records**:
+   - **Type**: CNAME
+   - **Name**: `yourusername` (hoặc `@` cho root domain)
+   - **Value**: `cname.vercel-dns.com`
+6. **Verify Domain** và chờ DNS propagation (5-30 phút)
+
+#### Bước 5: SSL Certificate
+- Vercel sẽ tự động tạo SSL certificate cho domain
+- Website sẽ có HTTPS: `https://yourusername.io.me`
 
 #### Domain tùy chỉnh (Optional)
 1. Vào **Project Settings** > **Domains**
@@ -178,6 +193,38 @@ git push -u origin main
 ### Manual Deployment
 1. Build: `npm run build`
 2. Upload thư mục `dist` lên web server của bạn
+
+## 🌐 Domain Configuration (io.me)
+
+### Hướng dẫn cấu hình domain io.me chi tiết:
+
+#### 1. **Mua domain io.me**
+- Truy cập [io.me](https://io.me) hoặc các nhà cung cấp domain khác
+- Đăng ký domain theo format: `yourname.io.me`
+
+#### 2. **Cấu hình DNS tại nhà cung cấp domain**
+Thêm CNAME record sau:
+```
+Type: CNAME
+Name: @ (hoặc www)
+Value: cname.vercel-dns.com
+TTL: 300 (hoặc Auto)
+```
+
+#### 3. **Thêm domain vào Vercel**
+```bash
+# Sau khi deploy project lên Vercel:
+1. Vào Vercel Dashboard
+2. Chọn project "CVprofile"
+3. Settings > Domains
+4. Add Domain: yourname.io.me
+5. Verify ownership
+```
+
+#### 4. **Kiểm tra domain**
+- DNS propagation: 5-30 phút
+- SSL certificate: Tự động tạo
+- Final URL: `https://yourname.io.me`
 
 ## 📧 Contact Form
 
